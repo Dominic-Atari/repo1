@@ -1,0 +1,151 @@
+<div th:fragment="sidebar" sec:authorize="isAuthenticated()" >
+<style>
+
+.offcanvas-body>ul>li>a.toggle-link {
+	font-size: 18px;
+	font-weight: bold;
+	color: #333;
+}
+
+.offcanvas-body>ul>li>a.toggle-link:hover {
+	font-size: 20px;
+	color: #007bff;
+}
+
+.offcanvas-body>ul>li>a.toggle-link:active, .offcanvas-body>ul>li>a.toggle-link:focus
+	{
+	font-size: 20px;
+	color: #007bff;
+}
+
+.offcanvas-body>ul>li>ul.submenu>li>a.toggle-link {
+	font-size: 16px;
+	font-weight: bold;
+	color: #666;
+}
+
+.offcanvas-body>ul>li>ul.submenu>li>a.toggle-link:hover {
+	font-size: 18px;
+	color: #007bff;
+}
+
+.offcanvas-body>ul>li>ul.submenu>li>a.toggle-link:active,
+	.offcanvas-body>ul>li>ul.submenu>li>a.toggle-link:focus {
+	font-size: 18px;
+	color: #007bff;
+}
+
+.offcanvas-body>ul>li>ul.submenu>li>ul.submenu>li>label {
+	font-size: 14px;
+	color: #999;
+}
+
+.offcanvas-body>ul>li>ul.submenu>li>ul.submenu>li>label:hover {
+	font-size: 16px;
+	color: #007bff;
+}
+
+.subtopic-checkbox:checked+label {
+	font-size: 16px;
+	font-weight: bold;
+	color: #007bff;
+}
+.submenu {
+  display: none;
+  padding-left: 20px;
+}
+
+.toggle-link::after {
+  content: '\25B8'; /* right arrow */
+  font-size: 12px;
+  margin-left: 5px;
+}
+
+.toggle-link.open::after {
+  content: '\25BE'; /* down arrow */
+}
+</style>
+    <button class="btn btn-secondary position-fixed start-0" style="top: 50%; transform: translateY(-50%); border: 4px solid white; border-radius: 0px; padding: 10px;" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
+    <i class="bi bi-list fs-5"></i>
+</button>
+
+    <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+        <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="offcanvasExampleLabel">Classes</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <!-- start -->
+        <div class="level">
+        <h4>Secondary 6</h4>
+        </div>
+       <div class="offcanvas-body">
+    <ul>
+        <li>
+            <a href="#" class="toggle-link">Mathematics</a>
+            <ul class="submenu">
+                <li>
+                    <a href="#" class="toggle-link">Algebra</a>
+                    <ul class="submenu">
+                        <li>
+                            <input type="checkbox" style="border-radius: 50%;" class="subtopic-checkbox">
+                          <label><a th:href="@{/create-note}" style="text-decoration: none; color: black;">Equation word</a></label>
+                        </li>
+                        <li>
+                            <input type="checkbox" style="border-radius: 50%;" class="subtopic-checkbox">
+                            <label>Inequalities</label>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#" class="toggle-link">Addition</a>
+                    <ul class="submenu">
+                        <li>
+                            <input type="checkbox" style="border-radius: 50%;" class="subtopic-checkbox">
+                            <label>Single-digit addition</label>
+                        </li>
+                        <li>
+                            <input type="checkbox" style="border-radius: 50%;" class="subtopic-checkbox">
+                            <label>Multi-digit addition</label>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#" class="toggle-link">Word problems</a>
+                    <ul class="submenu">
+                        <li>
+                            <input type="checkbox" style="border-radius: 50%;" class="subtopic-checkbox">
+                            <label>Simple word problems</label>
+                        </li>
+                        <li>
+                            <input type="checkbox" style="border-radius: 50%;" class="subtopic-checkbox">
+                            <label>Complex word problems</label>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+    </ul>
+</div>
+                <!-- ends -->
+        
+    </div>
+   
+    <script type="text/javascript">
+    //this is to toggle by showing and hiding the content in subjects
+    document.querySelectorAll('.toggle-link').forEach(link => {
+    	  link.addEventListener('click', function(event) {
+    	    event.preventDefault();
+    	    const submenu = link.nextElementSibling;
+    	    link.classList.toggle('open');
+    	    submenu.style.display = link.classList.contains('open') ? 'block' : 'none';
+    	  });
+    	});
+    //when subtopic clicked, the check box checks itself.
+    document.querySelectorAll('.subtopic-checkbox + label').forEach(label => {
+    	  label.addEventListener('click', function() {
+    	    const checkbox = this.previousElementSibling;
+    	    checkbox.checked = !checkbox.checked;
+    	  });
+    	});
+    </script>
+</div>

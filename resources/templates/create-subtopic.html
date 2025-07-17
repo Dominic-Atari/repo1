@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Create Subtopic</title>
+</head>
+<body>
+    <h1>Create Subtopic</h1>
+    <form th:action="@{/subjects/{subjectId}/topics/{topicId}/subtopics/create(subjectId=${subjectId}, topicId=${topicId})}" method="post" th:object="${subtopic}">
+        <label for="subtopicName">Subtopic Name:</label>
+        <input type="text" id="subtopicName" th:field="*{subtopicName}" />
+        <button type="submit">Create Subtopic</button>
+    </form>
+</body>
+</html>
