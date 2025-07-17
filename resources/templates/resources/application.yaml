@@ -1,0 +1,29 @@
+spring:
+  datasource:
+    username: mystore1
+    password: mystore1
+    url: jdbc:mysql://localhost:3306/mystore1
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+  defer-datasource-initialization: true
+  sql:
+    init:
+      mode: never #always never
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: kikosimikehop2@gmail.com
+    password: Kikosi1996Kikosi
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls: true
+  thymeleaf:
+    prefix: classpath:/templates/
+    suffix: .html
+logging:
+  level:
+    org.springframework.security: DEBUG

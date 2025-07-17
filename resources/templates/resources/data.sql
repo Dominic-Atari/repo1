@@ -1,0 +1,10 @@
+INSERT INTO form1_subjects (form1subject) VALUES ('Math');
+INSERT INTO form1_subjects (form1subject) VALUES ('Science');
+INSERT INTO form1_subjects (form1subject) VALUES ('English');
+INSERT INTO form1_subjects (form1subject) VALUES ('Geography');
+INSERT INTO form1_subjects (form1subject) VALUES ('Physics');
+INSERT INTO form1_subjects (form1subject) VALUES ('Chemestry');
+INSERT INTO form1_subjects (form1subject) VALUES ('Agrichulture');
+INSERT INTO form1_subjects (form1subject) VALUES ('Kiswahili');
+INSERT INTO form1_subjects (form1subject) VALUES ('History');
+INSERT INTO form1_subjects (form1subject) VALUES ('CRE');
